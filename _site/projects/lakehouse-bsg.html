@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lakehouse para BI: Bronze/Silver/Gold — Lucas - Portifolio</title>
+    <meta name="description" content="Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root { --bg: #0b1220; }
+      body { background: var(--bg); }
+    </style>
+  </head>
+  <body class="text-slate-100">
+    <header class="border-b border-white/10">
+      <nav class="container mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
+        <a href="/" class="font-semibold tracking-wide">Lucas.dev</a>
+        <a href="/projects" class="text-sm text-slate-300 hover:text-white">Todos os projetos</a>
+      </nav>
+    </header>
+    <main class="container mx-auto max-w-3xl px-6 py-10">
+      <h1 class="text-3xl font-bold">Lakehouse para BI: Bronze/Silver/Gold</h1>
+      
+        <div class="mt-3 flex flex-wrap gap-2">
+          
+            <span class="px-2 py-1 rounded bg-white/10 text-xs">Databricks</span>
+          
+            <span class="px-2 py-1 rounded bg-white/10 text-xs">Delta Lake</span>
+          
+            <span class="px-2 py-1 rounded bg-white/10 text-xs">Power BI</span>
+          
+            <span class="px-2 py-1 rounded bg-white/10 text-xs">S3</span>
+          
+            <span class="px-2 py-1 rounded bg-white/10 text-xs">ETL</span>
+          
+        </div>
+      
+      
+        <img src="/assets/images/lakehouse-thumb.png" alt="" class="rounded-2xl mt-6 border border-white/10">
+      
+      
+        <p class="mt-6 text-slate-300">Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%.</p>
+      
+      <article class="prose prose-invert mt-6 max-w-none">
+        <h2 id="objetivo">Objetivo</h2>
+<p>Reduzir o tempo de atualização dos dashboards e padronizar camadas de dados.</p>
+
+<h2 id="arquitetura">Arquitetura</h2>
+<ul>
+  <li>Ingestão: S3 (raw) → Databricks Autoloader</li>
+  <li>Processamento: Bronze → Silver → Gold (Delta Lake)</li>
+  <li>Orquestração: Airflow</li>
+  <li>Exposição: Power BI DirectQuery</li>
+</ul>
+
+<h2 id="resultados">Resultados</h2>
+<ul>
+  <li>Latência média caiu de 5m40s para 2m10s.</li>
+  <li>Qualidade monitorada com métricas de <em>freshness</em> e <em>completeness</em>.</li>
+</ul>
+
+      </article>
+    </main>
+    <footer class="mt-16 py-10 border-t border-white/10">
+      <div class="container mx-auto max-w-3xl px-6 text-sm text-slate-400">
+        © 2025 Lucas.
+      </div>
+    </footer>
+  </body>
+</html>
