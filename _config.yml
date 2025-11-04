@@ -1,0 +1,8 @@
+title: "Lucas — Engenheiro de Dados"
+description: "Portfólio com projetos de engenharia de dados, pipelines e arquitetura."
+markdown: kramdown
+theme: null
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/

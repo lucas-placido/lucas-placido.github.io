@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: #0f172a;
+      }
+      body { background: radial-gradient(1200px 600px at 10% 10%, rgba(34,211,238,0.08), transparent 60%), radial-gradient(800px 400px at 90% 20%, rgba(99,102,241,0.08), transparent 60%), var(--bg); }
+      .container-narrow { max-width: 1100px; }
+      .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); }
+      .chip { background:#0b1a2e; border:1px solid rgba(255,255,255,0.08); }
+    </style>
+  </head>
+  <body class="text-slate-100 antialiased">
+    <header class="border-b border-white/10">
+      <nav class="container container-narrow mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="{{ '/' | relative_url }}" class="font-semibold tracking-wide">Lucas.dev</a>
+        <div class="space-x-6 text-sm text-slate-300">
+          <a href="{{ '/' | relative_url }}" class="hover:text-white">Início</a>
+          <a href="{{ '/#projetos' | relative_url }}" class="hover:text-white">Projetos</a>
+          <a href="{{ '/#skills' | relative_url }}" class="hover:text-white">Skills</a>
+          <a href="https://github.com/" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a>
+          <a href="mailto:seu.email@exemplo.com" class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10">Contato</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+    <footer class="mt-20 py-10 border-t border-white/10">
+      <div class="container container-narrow mx-auto px-6 text-sm text-slate-400">
+        © {{ "now" | date: "%Y" }} Lucas — Engenheiro de Dados. Hospedado com GitHub Pages.
+      </div>
+    </footer>
+  </body>
+</html>
