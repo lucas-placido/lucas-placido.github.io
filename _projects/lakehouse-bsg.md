@@ -3,6 +3,7 @@ layout: project
 title: "Lakehouse para BI: Bronze/Silver/Gold"
 date: 2025-11-01
 summary: "Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%."
+repo: "https://github.com/lucas-placido/lakehouse-bi"
 tags: ["Databricks","Delta Lake","Power BI","S3","ETL"]
 thumbnail: /assets/images/lakehouse-thumb.png
 ---

@@ -13,8 +13,8 @@
   </style>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} — Lucas - Portifolio</title>
-    <meta name="description" content="{{ page.summary | default: site.description }}">
+    <title>Lakehouse para BI: Bronze/Silver/Gold — Lucas - Portifolio</title>
+    <meta name="description" content="Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       :root { --bg: #0b1220; }
@@ -24,12 +24,12 @@
   <body class="text-slate-100">
     <header class="border-b border-white/10">
       <nav class="container mx-auto max-w-5xl px-6 py-4 flex items-center justify-between">
-        <a href="{{ '/' | relative_url }}" class="flex items-center gap-2 text-slate-200 hover:text-cyan-300 transition">
+        <a href="/" class="flex items-center gap-2 text-slate-200 hover:text-cyan-300 transition">
         <img src="/assets/icons/home.svg" alt="Home" class="w-5 h-5 opacity-90">
         <span class="font-medium">Home</span>
       </a>
 
-        <a href="{{ '/projects' | relative_url }}" class="text-sm text-slate-300 hover:text-white">Todos os projetos</a>
+        <a href="/projects" class="text-sm text-slate-300 hover:text-white">Todos os projetos</a>
       </nav>
     </header>
 
@@ -37,21 +37,29 @@
       <!-- Título + tags (esquerda) | Botões de ação (direita) -->
       <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
         <div class="min-w-0">
-          <h1 class="text-3xl font-bold">{{ page.title }}</h1>
+          <h1 class="text-3xl font-bold">Lakehouse para BI: Bronze/Silver/Gold</h1>
 
-          {% if page.tags %}
+          
             <div class="mt-3 flex flex-wrap gap-2">
-              {% for t in page.tags %}
-                <span class="px-2 py-1 rounded bg-white/10 text-xs">{{ t }}</span>
-              {% endfor %}
+              
+                <span class="px-2 py-1 rounded bg-white/10 text-xs">Databricks</span>
+              
+                <span class="px-2 py-1 rounded bg-white/10 text-xs">Delta Lake</span>
+              
+                <span class="px-2 py-1 rounded bg-white/10 text-xs">Power BI</span>
+              
+                <span class="px-2 py-1 rounded bg-white/10 text-xs">S3</span>
+              
+                <span class="px-2 py-1 rounded bg-white/10 text-xs">ETL</span>
+              
             </div>
-          {% endif %}
+          
         </div>
 
         <div class="flex gap-3 shrink-0">
-          {% assign repo_url = page.repo | default: '' | strip %}
-          {% if repo_url != '' %}
-            <a href="{{ repo_url }}" target="_blank" rel="noopener"
+          
+          
+            <a href="https://github.com/lucas-placido/lakehouse-bi" target="_blank" rel="noopener"
                class="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-xl
                       bg-cyan-400/20 border border-cyan-300/30 hover:bg-cyan-400/30
                       hover:text-cyan-100 transition">
@@ -64,26 +72,42 @@
               </svg>
               Ver repositório
             </a>
-          {% endif %}
+          
         </div>
       </div>
 
-      {% if page.thumbnail %}
-        <img src="{{ page.thumbnail | relative_url }}" alt="" class="rounded-2xl mt-6 border border-white/10">
-      {% endif %}
+      
+        <img src="/assets/images/lakehouse-thumb.png" alt="" class="rounded-2xl mt-6 border border-white/10">
+      
 
-      {% if page.summary %}
-        <p class="mt-6 text-slate-300">{{ page.summary }}</p>
-      {% endif %}
+      
+        <p class="mt-6 text-slate-300">Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%.</p>
+      
 
       <article class="prose prose-invert mt-8 max-w-none">
-        {{ content }}
+        <h2 id="objetivo">Objetivo</h2>
+<p>Reduzir o tempo de atualização dos dashboards e padronizar camadas de dados.</p>
+
+<h2 id="arquitetura">Arquitetura</h2>
+<ul>
+  <li>Ingestão: S3 (raw) → Databricks Autoloader</li>
+  <li>Processamento: Bronze → Silver → Gold (Delta Lake)</li>
+  <li>Orquestração: Airflow</li>
+  <li>Exposição: Power BI DirectQuery</li>
+</ul>
+
+<h2 id="resultados">Resultados</h2>
+<ul>
+  <li>Latência média caiu de 5m40s para 2m10s.</li>
+  <li>Qualidade monitorada com métricas de <em>freshness</em> e <em>completeness</em>.</li>
+</ul>
+
       </article>
     </main>
 
     <footer class="mt-16 py-10 border-t border-white/10">
       <div class="container mx-auto max-w-3xl px-6 text-sm text-slate-400">
-        © {{ "now" | date: "%Y" }} Lucas — Portifólio Engenheiro de Dados. Hospedado com GitHub Pages.
+        © 2025 Lucas — Portifólio Engenheiro de Dados. Hospedado com GitHub Pages.
       </div>
     </footer>
   </body>

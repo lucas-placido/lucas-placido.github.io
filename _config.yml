@@ -4,4 +4,5 @@ theme: null
 collections:
   projects:
     output: true
-    permalink: /projects/:slug/
+    permalink: /projects/:name/
+
