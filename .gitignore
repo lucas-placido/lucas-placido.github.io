@@ -1,2 +1,17 @@
-lucas-portifolio-pages-dark.zip
-README.md
+# Jekyll build
+_site/
+.jekyll-cache/
+.jekyll-metadata
+
+# Dependências
+vendor/
+.bundle/
+
+# Arquivos locais / exports
+*.zip
+*.bak
+*.tmp
+
+# OS / editor
+.DS_Store
+Thumbs.db

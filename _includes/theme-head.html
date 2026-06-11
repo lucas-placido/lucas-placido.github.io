@@ -1,0 +1,133 @@
+{%- comment -%} Tema, variáveis CSS (claro/escuro), anti-FOUC, SEO/OG e favicon — compartilhado entre layouts {%- endcomment -%}
+<script>
+  // Anti-FOUC: aplica o tema salvo (padrão claro) antes da pintura
+  (function () {
+    try {
+      var t = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/svg+xml" href="{{ '/assets/favicon.svg' | relative_url }}">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: page.summary | default: site.description }}">
+<meta property="og:image" content="{{ '/assets/images/buscador-de-vagas.svg' | relative_url }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #f8fafc;
+    --grad1: rgba(13,148,136,0.07);
+    --grad2: rgba(45,212,191,0.06);
+    --text: #1e293b;
+    --muted: #475569;
+    --heading: #0f172a;
+    --border: #e2e8f0;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --accent: #0d9488;
+    --accent-strong: #0f766e;
+    --accent-contrast: #ffffff;
+    --chip-bg: #f1f5f9;
+    --chip-text: #334155;
+    --shadow: 0 1px 2px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.06);
+    --shadow-hover: 0 12px 30px rgba(13,148,136,0.16);
+    --nav-bg: rgba(255,255,255,0.78);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1220;
+    --grad1: rgba(45,212,191,0.10);
+    --grad2: rgba(13,148,136,0.08);
+    --text: #cbd5e1;
+    --muted: #94a3b8;
+    --heading: #f1f5f9;
+    --border: rgba(255,255,255,0.10);
+    --surface: #0f172a;
+    --surface-2: #0b1a2e;
+    --accent: #2dd4bf;
+    --accent-strong: #5eead4;
+    --accent-contrast: #052e2b;
+    --chip-bg: #0b1a2e;
+    --chip-text: #cbd5e1;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.35);
+    --shadow-hover: 0 14px 34px rgba(0,0,0,0.45);
+    --nav-bg: rgba(11,18,32,0.72);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 10% 0%, var(--grad1), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, var(--grad2), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .container-narrow { max-width: 1100px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+  }
+
+  .chip {
+    background: var(--chip-bg);
+    border: 1px solid var(--border);
+    color: var(--chip-text);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border: 1px solid transparent;
+    transition: background-color .15s ease, transform .15s ease;
+  }
+  .btn-primary:hover { background: var(--accent-strong); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-ghost:hover { background: var(--surface-2); border-color: var(--accent); color: var(--accent); }
+
+  /* Conteúdo das páginas de projeto */
+  .prose { color: var(--text); line-height: 1.7; }
+  .prose a { color: var(--accent); text-decoration: none; }
+  .prose a:hover { text-decoration: underline; }
+  .prose h2, .prose h3 { color: var(--heading); font-weight: 600; margin-top: 1.6em; margin-bottom: .4em; }
+  .prose p, .prose li { color: var(--text); }
+  .prose strong { color: var(--heading); }
+  .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-top: .5rem; }
+  .prose code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em; }
+  .prose pre {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    overflow: auto;
+    font-size: .82rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+  .prose pre code { color: var(--text); }
+  .prose table { width: 100%; border-collapse: collapse; margin: 1.1rem 0; font-size: .92rem; }
+  .prose th, .prose td { border: 1px solid var(--border); padding: .5rem .75rem; text-align: left; }
+  .prose th { background: var(--surface-2); color: var(--heading); }
+  .prose blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--muted); margin: 1rem 0; }
+
+  a:hover img.thumb { box-shadow: 0 0 0 1px var(--accent); }
+</style>

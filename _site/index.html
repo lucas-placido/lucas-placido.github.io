@@ -3,176 +3,417 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Portifólio de Lucas — Engenheiro de Dados</title>
+    <title>Portfólio de Lucas Plácido — Engenheiro de Dados</title>
     <meta name="description" content="Portfólio com projetos de engenharia de dados, pipelines e arquitetura.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --bg: #0b1220;
-        --card: #0f172a;
-      }
-      body { background: radial-gradient(1200px 600px at 10% 10%, rgba(34,211,238,0.08), transparent 60%), radial-gradient(800px 400px at 90% 20%, rgba(99,102,241,0.08), transparent 60%), var(--bg); }
-      .container-narrow { max-width: 1100px; }
-      .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); }
-      .chip { background:#0b1a2e; border:1px solid rgba(255,255,255,0.08); }
-    </style>
-  </head>
-  <body class="text-slate-100 antialiased">
-    <header class="border-b border-white/10">
-      <nav class="container container-narrow mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="/" class="font-semibold tracking-wide">Lucas Plácido - Portifólio</a>
-        <div class="space-x-6 text-sm text-slate-300">
-          <a href="/" class="hover:text-white">Início</a>
-          <a href="/#projetos" class="hover:text-white">Projetos</a>
-          <a href="/#skills" class="hover:text-white">Skills</a>
-          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
-          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a>
-           <div class="relative group inline-block">
-          <button class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10">
-            Contato
-          </button>
+    <script>
+  // Anti-FOUC: aplica o tema salvo (padrão claro) antes da pintura
+  (function () {
+    try {
+      var t = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  })();
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
 
-          <!-- DROPDOWN -->
-          <div
-            class="absolute right-0 top-full translate-y-2 opacity-0
-                  group-hover:translate-y-0 group-hover:opacity-100
-                  group-focus-within:translate-y-0 group-focus-within:opacity-100
-                  pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
-                  transition duration-150 ease-out">
-            <div class="w-44 rounded-xl bg-[#0f172a] border border-white/10 shadow-lg overflow-hidden">
-              <a href="mailto:placido.data@gmail.com"
-                class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-                ✉️ E-mail
-              </a>
-              <a href="https://wa.me/5575981783225" target="_blank"
-                class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-                💬 WhatsApp
-              </a>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Portfólio de Lucas Plácido — Engenheiro de Dados">
+<meta property="og:description" content="Portfólio com projetos de engenharia de dados, pipelines e arquitetura.">
+<meta property="og:image" content="/assets/images/buscador-de-vagas.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root {
+    --bg: #f8fafc;
+    --grad1: rgba(13,148,136,0.07);
+    --grad2: rgba(45,212,191,0.06);
+    --text: #1e293b;
+    --muted: #475569;
+    --heading: #0f172a;
+    --border: #e2e8f0;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --accent: #0d9488;
+    --accent-strong: #0f766e;
+    --accent-contrast: #ffffff;
+    --chip-bg: #f1f5f9;
+    --chip-text: #334155;
+    --shadow: 0 1px 2px rgba(15,23,42,0.06), 0 8px 24px rgba(15,23,42,0.06);
+    --shadow-hover: 0 12px 30px rgba(13,148,136,0.16);
+    --nav-bg: rgba(255,255,255,0.78);
+  }
+  :root[data-theme="dark"] {
+    --bg: #0b1220;
+    --grad1: rgba(45,212,191,0.10);
+    --grad2: rgba(13,148,136,0.08);
+    --text: #cbd5e1;
+    --muted: #94a3b8;
+    --heading: #f1f5f9;
+    --border: rgba(255,255,255,0.10);
+    --surface: #0f172a;
+    --surface-2: #0b1a2e;
+    --accent: #2dd4bf;
+    --accent-strong: #5eead4;
+    --accent-contrast: #052e2b;
+    --chip-bg: #0b1a2e;
+    --chip-text: #cbd5e1;
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 12px 32px rgba(0,0,0,0.35);
+    --shadow-hover: 0 14px 34px rgba(0,0,0,0.45);
+    --nav-bg: rgba(11,18,32,0.72);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 10% 0%, var(--grad1), transparent 60%),
+      radial-gradient(900px 500px at 90% 10%, var(--grad2), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    transition: background-color .2s ease, color .2s ease;
+  }
+  .container-narrow { max-width: 1100px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--accent);
+  }
+
+  .chip {
+    background: var(--chip-bg);
+    border: 1px solid var(--border);
+    color: var(--chip-text);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--accent-contrast);
+    border: 1px solid transparent;
+    transition: background-color .15s ease, transform .15s ease;
+  }
+  .btn-primary:hover { background: var(--accent-strong); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn-ghost:hover { background: var(--surface-2); border-color: var(--accent); color: var(--accent); }
+
+  /* Conteúdo das páginas de projeto */
+  .prose { color: var(--text); line-height: 1.7; }
+  .prose a { color: var(--accent); text-decoration: none; }
+  .prose a:hover { text-decoration: underline; }
+  .prose h2, .prose h3 { color: var(--heading); font-weight: 600; margin-top: 1.6em; margin-bottom: .4em; }
+  .prose p, .prose li { color: var(--text); }
+  .prose strong { color: var(--heading); }
+  .prose ul { list-style-type: disc; margin-left: 1.5rem; margin-top: .5rem; }
+  .prose code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em; }
+  .prose pre {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+    overflow: auto;
+    font-size: .82rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+  }
+  .prose pre code { color: var(--text); }
+  .prose table { width: 100%; border-collapse: collapse; margin: 1.1rem 0; font-size: .92rem; }
+  .prose th, .prose td { border: 1px solid var(--border); padding: .5rem .75rem; text-align: left; }
+  .prose th { background: var(--surface-2); color: var(--heading); }
+  .prose blockquote { border-left: 3px solid var(--accent); padding-left: 1rem; color: var(--muted); margin: 1rem 0; }
+
+  a:hover img.thumb { box-shadow: 0 0 0 1px var(--accent); }
+</style>
+
+  </head>
+  <body class="antialiased">
+    <header class="sticky top-0 z-30 border-b backdrop-blur" style="border-color: var(--border); background: var(--nav-bg)">
+      <nav class="container container-narrow mx-auto px-6 py-4 flex items-center justify-between">
+        <a href="/" class="font-semibold tracking-wide text-[var(--heading)]">
+          Lucas Plácido <span class="text-[var(--accent)]">·</span> Portfólio
+        </a>
+        <div class="flex items-center gap-5 text-sm">
+          <a href="/" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Início</a>
+          <a href="/#projetos" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Projetos</a>
+          <a href="/#certificacoes" class="hidden lg:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Certificações</a>
+          <a href="/#skills" class="hidden md:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Skills</a>
+          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="text-[var(--muted)] hover:text-[var(--accent)] transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">LinkedIn</a>
+
+          <div class="relative group inline-block">
+            <button class="btn-ghost px-3 py-1.5 rounded-lg text-sm">Contato</button>
+            <!-- DROPDOWN -->
+            <div class="absolute right-0 top-full translate-y-2 opacity-0
+                        group-hover:translate-y-0 group-hover:opacity-100
+                        group-focus-within:translate-y-0 group-focus-within:opacity-100
+                        pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
+                        transition duration-150 ease-out z-40">
+              <div class="w-44 rounded-xl shadow-lg overflow-hidden border" style="background: var(--surface); border-color: var(--border)">
+                <a href="mailto:placido.data@gmail.com" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">✉️ E-mail</a>
+                <a href="https://wa.me/5575981783225" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">💬 WhatsApp</a>
+              </div>
             </div>
           </div>
-        </div>
+
+          <button id="theme-toggle" type="button" aria-label="Alternar tema claro ou escuro"
+  class="inline-flex items-center justify-center w-9 h-9 rounded-lg border text-[var(--muted)] hover:text-[var(--accent)] transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+  style="border-color: var(--border)">
+  <svg data-icon="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+  </svg>
+  <svg data-icon="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+       stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" style="display:none">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+  </svg>
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var moon = btn.querySelector('[data-icon="moon"]');
+    var sun = btn.querySelector('[data-icon="sun"]');
+    function render(t) {
+      // mostra lua no tema claro (clique => escuro), sol no tema escuro (clique => claro)
+      var dark = t === 'dark';
+      moon.style.display = dark ? 'none' : 'block';
+      sun.style.display = dark ? 'block' : 'none';
+    }
+    render(document.documentElement.getAttribute('data-theme') || 'light');
+    btn.addEventListener('click', function () {
+      var cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      var next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      render(next);
+    });
+  })();
+</script>
 
         </div>
       </nav>
     </header>
+
     <main>
-      <section class="container container-narrow mx-auto px-6 py-16">
+      <section class="container container-narrow mx-auto px-6 pt-16 pb-10">
   <div class="max-w-3xl">
-    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight">
-      Olá, eu sou <span class="text-cyan-300">Lucas</span> — Engenheiro de Dados.
+    <p class="text-sm font-semibold tracking-wide text-[var(--accent)] uppercase mb-3">Engenheiro de Dados · Analytics Engineering</p>
+    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight text-[var(--heading)]">
+      Olá, eu sou <span class="text-[var(--accent)]">Lucas Plácido</span>.
     </h1>
-    <p class="mt-5 text-lg text-slate-300 max-w-2xl">
-      Crio pipelines e arquiteturas que transformam dados brutos em decisões inteligentes.
-      Foco em Spark, Databricks, Airflow, AWS e CI/CD.
+    <p class="mt-5 text-lg text-[var(--muted)] max-w-2xl">
+      Crio pipelines ELT confiáveis e modelo dados para análise — do ingestão à camada de consumo.
+      Foco em <strong class="text-[var(--text)]">dbt, Airflow, SQL/Python</strong> e cloud (BigQuery / AWS).
     </p>
-    <div class="mt-8 flex gap-4">
-      <a href="#projetos" class="px-5 py-3 rounded-xl bg-cyan-400/20 border border-cyan-300/30 hover:bg-cyan-400/30">Ver Projetos</a>
-<div class="relative group inline-block">
-    <button class="px-8 py-3 text-base font-semibold rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition">
-      Contato
-    </button>
-
-  <!-- DROPDOWN -->
-  <div
-    class="absolute right-0 top-full translate-y-2 opacity-0
-           group-hover:translate-y-0 group-hover:opacity-100
-           group-focus-within:translate-y-0 group-focus-within:opacity-100
-           pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
-           transition duration-150 ease-out">
-    <div class="w-44 rounded-xl bg-[#0f172a] border border-white/10 shadow-lg overflow-hidden">
-      <a href="mailto:placido.data@gmail.com"
-         class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-        ✉️ E-mail
-      </a>
-      <a href="https://wa.me/5575981783225" target="_blank"
-         class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-        💬 WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
-</div>
+    <div class="mt-8 flex flex-wrap items-center gap-4">
+      <a href="#projetos" class="btn-primary px-5 py-3 rounded-xl font-semibold">Ver Projetos</a>
+      <div class="relative group inline-block">
+        <button class="btn-ghost px-5 py-3 rounded-xl text-base font-semibold">Contato</button>
+        <!-- DROPDOWN -->
+        <div class="absolute left-0 top-full translate-y-2 opacity-0
+                    group-hover:translate-y-0 group-hover:opacity-100
+                    group-focus-within:translate-y-0 group-focus-within:opacity-100
+                    pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
+                    transition duration-150 ease-out z-40">
+          <div class="w-44 rounded-xl shadow-lg overflow-hidden border" style="background: var(--surface); border-color: var(--border)">
+            <a href="mailto:placido.data@gmail.com" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">✉️ E-mail</a>
+            <a href="https://wa.me/5575981783225" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 <section id="sobre" class="container container-narrow mx-auto px-6 py-8">
-  <h2 class="text-2xl font-semibold mb-4">Sobre Mim</h2>
-  <p class="text-slate-300 max-w-3xl">
-    Engenheiro de Dados com experiência em arquiteturas escaláveis, modelagem de dados e automação. Já implementei pipelines batch e streaming, orquestração com Airflow,
-    infraestrutura como código com Terraform e monitoração ponta a ponta.
+  <h2 class="text-2xl font-semibold mb-4 text-[var(--heading)]">Sobre Mim</h2>
+  <p class="text-[var(--muted)] max-w-3xl">
+    Engenheiro de Dados (pleno) em Salvador-BA, focado em Analytics Engineering. Construo pipelines ELT confiáveis,
+    modelo dados com dbt, orquestro com Airflow e provisiono infraestrutura como código com Terraform — na AWS e no BigQuery.
   </p>
 </section>
+
+<section id="certificacoes" class="container container-narrow mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold mb-2 text-[var(--heading)]">Certificações</h2>
+  <p class="text-[var(--muted)] mb-6 max-w-2xl">Validações oficiais do meu stack-alvo em dados e cloud.</p>
+  <div class="grid sm:grid-cols-3 gap-5">
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#FF9900">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Amazon Web Services</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">AWS Certified Data Analytics — Specialty</h3>
+      <p class="text-sm text-[var(--muted)]">Projetar e operar soluções de analytics na AWS — ingestão, armazenamento, processamento e visualização de dados em escala.</p>
+    </div>
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#FF3621">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Databricks</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">Databricks Lakehouse Fundamentals</h3>
+      <p class="text-sm text-[var(--muted)]">Fundamentos da arquitetura Lakehouse e do Delta Lake na plataforma Databricks para dados e IA.</p>
+    </div>
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#017CEE">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Astronomer · Apache Airflow</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">Apache Airflow Fundamentals</h3>
+      <p class="text-sm text-[var(--muted)]">Orquestração de workflows com Apache Airflow — autoria de DAGs, agendamento, operators e boas práticas.</p>
+    </div>
+
+  </div>
+</section>
+
 <section id="projetos" class="container container-narrow mx-auto px-6 py-12">
   <div class="flex items-center justify-between mb-6">
-    <h2 class="text-2xl font-semibold">Projetos em Destaque</h2>
-    <a href="/projects" class="text-sm text-cyan-300 hover:underline">Ver todos</a>
+    <h2 class="text-2xl font-semibold text-[var(--heading)]">Projetos em Destaque</h2>
+    <a href="/projects" class="text-sm font-medium text-[var(--accent)] hover:underline">Ver todos →</a>
   </div>
   <div class="grid md:grid-cols-3 gap-6">
     
     
     
-      <a href="/projects/lakehouse-bsg/" class="card rounded-2xl p-5 hover:scale-[1.01] transition">
+      <a href="/projects/buscador-de-vagas/" class="card rounded-2xl overflow-hidden flex flex-col">
         
-          <img src="/assets/images/lakehouse-thumb.png" alt="" class="rounded-xl mb-4 border border-white/10"/>
+          <img src="/assets/images/buscador-de-vagas.svg" alt="Buscador de Vagas: pipeline ELT + RAG" loading="lazy"
+               class="w-full aspect-[5/2] object-cover border-b" style="border-color: var(--border)"/>
         
-        <h3 class="text-xl font-semibold">Lakehouse para BI: Bronze/Silver/Gold</h3>
-        <p class="text-slate-300 mt-2">Arquitetura Delta Lake integrada ao Power BI, reduzindo latência dos dashboards em ~60%.</p>
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="text-lg font-semibold text-[var(--heading)]">Buscador de Vagas: pipeline ELT + RAG</h3>
+          <p class="text-sm text-[var(--muted)] line-clamp-3">Pipeline ELT que agrega vagas remotas de tech de 5 APIs, modela com dbt no BigQuery, orquestra com Airflow e expõe busca semântica + RAG sobre as descrições.</p>
+          
+            <div class="mt-2 flex flex-wrap gap-2">
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">dbt</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">BigQuery</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Airflow</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Terraform</span>
+              
+            </div>
+          
+        </div>
+      </a>
+    
+      <a href="/projects/aws-lakehouse/" class="card rounded-2xl overflow-hidden flex flex-col">
         
-          <div class="mt-4 flex flex-wrap gap-2">
-            
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">Databricks</span>
-            
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">Delta Lake</span>
-            
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">Power BI</span>
-            
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">S3</span>
-            
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">ETL</span>
-            
-          </div>
+          <img src="/assets/images/aws-lakehouse.svg" alt="AWS Lakehouse com Apache Iceberg" loading="lazy"
+               class="w-full aspect-[5/2] object-cover border-b" style="border-color: var(--border)"/>
         
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="text-lg font-semibold text-[var(--heading)]">AWS Lakehouse com Apache Iceberg</h3>
+          <p class="text-sm text-[var(--muted)] line-clamp-3">Lakehouse serverless na AWS com Apache Iceberg e arquitetura Medallion (Bronze/Silver/Gold), orquestrado por Step Functions e provisionado 100% com Terraform.</p>
+          
+            <div class="mt-2 flex flex-wrap gap-2">
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">AWS</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Apache Iceberg</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Glue</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Step Functions</span>
+              
+            </div>
+          
+        </div>
+      </a>
+    
+      <a href="/projects/beanalytic/" class="card rounded-2xl overflow-hidden flex flex-col">
+        
+          <img src="/assets/images/beanalytic.svg" alt="beAnalytic: Lakehouse de Acidentes de Trânsito" loading="lazy"
+               class="w-full aspect-[5/2] object-cover border-b" style="border-color: var(--border)"/>
+        
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="text-lg font-semibold text-[var(--heading)]">beAnalytic: Lakehouse de Acidentes de Trânsito</h3>
+          <p class="text-sm text-[var(--muted)] line-clamp-3">Pipeline Medallion (raw → bronze → silver) com Airflow, PySpark e Delta Lake sobre dados abertos de acidentes de trânsito de BH, entregando um modelo dimensional (star schema).</p>
+          
+            <div class="mt-2 flex flex-wrap gap-2">
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Airflow</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">PySpark</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Delta Lake</span>
+              
+                <span class="chip px-2 py-1 rounded-lg text-xs">Medallion</span>
+              
+            </div>
+          
+        </div>
       </a>
     
   </div>
 </section>
+
 <section id="skills" class="container container-narrow mx-auto px-6 py-12">
-  <h2 class="text-2xl font-semibold mb-6">Skills</h2>
+  <h2 class="text-2xl font-semibold mb-6 text-[var(--heading)]">Skills</h2>
   <div class="flex flex-wrap gap-2">
     
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Python</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Python</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">PySpark</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">SQL</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Airflow</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">dbt</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Databricks</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Apache Airflow</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">AWS</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">AWS</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Terraform</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">BigQuery</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">GitHub Actions</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Terraform</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">SQL</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Docker</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Power BI</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">GitHub Actions</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Delta Lake</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Glue</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">S3</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">Step Functions</span>
     
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">Glue</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">RAG</span>
     
   </div>
 </section>
 
     </main>
-    <footer class="mt-20 py-10 border-t border-white/10">
-      <div class="container container-narrow mx-auto px-6 text-sm text-slate-400">
-        © 2025 Lucas — Portifólio Engenheiro de Dados. Hospedado com GitHub Pages.
+
+    <footer class="mt-20 py-10 border-t" style="border-color: var(--border)">
+      <div class="container container-narrow mx-auto px-6 text-sm text-[var(--muted)] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span>© 2026 Lucas Plácido — Engenheiro de Dados</span>
+        <span class="flex items-center gap-4">
+          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">LinkedIn</a>
+          <a href="mailto:placido.data@gmail.com" class="hover:text-[var(--accent)] transition">E-mail</a>
+        </span>
       </div>
     </footer>
   </body>

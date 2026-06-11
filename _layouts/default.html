@@ -5,62 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title | default: site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      :root {
-        --bg: #0b1220;
-        --card: #0f172a;
-      }
-      body { background: radial-gradient(1200px 600px at 10% 10%, rgba(34,211,238,0.08), transparent 60%), radial-gradient(800px 400px at 90% 20%, rgba(99,102,241,0.08), transparent 60%), var(--bg); }
-      .container-narrow { max-width: 1100px; }
-      .card { background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); border: 1px solid rgba(255,255,255,0.08); }
-      .chip { background:#0b1a2e; border:1px solid rgba(255,255,255,0.08); }
-    </style>
+    {% include theme-head.html %}
   </head>
-  <body class="text-slate-100 antialiased">
-    <header class="border-b border-white/10">
+  <body class="antialiased">
+    <header class="sticky top-0 z-30 border-b backdrop-blur" style="border-color: var(--border); background: var(--nav-bg)">
       <nav class="container container-narrow mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="{{ '/' | relative_url }}" class="font-semibold tracking-wide">Lucas Plácido - Portifólio</a>
-        <div class="space-x-6 text-sm text-slate-300">
-          <a href="{{ '/' | relative_url }}" class="hover:text-white">Início</a>
-          <a href="{{ '/#projetos' | relative_url }}" class="hover:text-white">Projetos</a>
-          <a href="{{ '/#skills' | relative_url }}" class="hover:text-white">Skills</a>
-          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="hover:text-white">GitHub</a>
-          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hover:text-white">LinkedIn</a>
-           <div class="relative group inline-block">
-          <button class="px-3 py-1 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10">
-            Contato
-          </button>
+        <a href="{{ '/' | relative_url }}" class="font-semibold tracking-wide text-[var(--heading)]">
+          Lucas Plácido <span class="text-[var(--accent)]">·</span> Portfólio
+        </a>
+        <div class="flex items-center gap-5 text-sm">
+          <a href="{{ '/' | relative_url }}" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Início</a>
+          <a href="{{ '/#projetos' | relative_url }}" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Projetos</a>
+          <a href="{{ '/#certificacoes' | relative_url }}" class="hidden lg:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Certificações</a>
+          <a href="{{ '/#skills' | relative_url }}" class="hidden md:inline text-[var(--muted)] hover:text-[var(--accent)] transition">Skills</a>
+          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="text-[var(--muted)] hover:text-[var(--accent)] transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hidden sm:inline text-[var(--muted)] hover:text-[var(--accent)] transition">LinkedIn</a>
 
-          <!-- DROPDOWN -->
-          <div
-            class="absolute right-0 top-full translate-y-2 opacity-0
-                  group-hover:translate-y-0 group-hover:opacity-100
-                  group-focus-within:translate-y-0 group-focus-within:opacity-100
-                  pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
-                  transition duration-150 ease-out">
-            <div class="w-44 rounded-xl bg-[#0f172a] border border-white/10 shadow-lg overflow-hidden">
-              <a href="mailto:placido.data@gmail.com"
-                class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-                ✉️ E-mail
-              </a>
-              <a href="https://wa.me/5575981783225" target="_blank"
-                class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-                💬 WhatsApp
-              </a>
+          <div class="relative group inline-block">
+            <button class="btn-ghost px-3 py-1.5 rounded-lg text-sm">Contato</button>
+            <!-- DROPDOWN -->
+            <div class="absolute right-0 top-full translate-y-2 opacity-0
+                        group-hover:translate-y-0 group-hover:opacity-100
+                        group-focus-within:translate-y-0 group-focus-within:opacity-100
+                        pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
+                        transition duration-150 ease-out z-40">
+              <div class="w-44 rounded-xl shadow-lg overflow-hidden border" style="background: var(--surface); border-color: var(--border)">
+                <a href="mailto:placido.data@gmail.com" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">✉️ E-mail</a>
+                <a href="https://wa.me/5575981783225" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">💬 WhatsApp</a>
+              </div>
             </div>
           </div>
-        </div>
 
+          {% include theme-toggle.html %}
         </div>
       </nav>
     </header>
+
     <main>
       {{ content }}
     </main>
-    <footer class="mt-20 py-10 border-t border-white/10">
-      <div class="container container-narrow mx-auto px-6 text-sm text-slate-400">
-        © {{ "now" | date: "%Y" }} Lucas — Portifólio Engenheiro de Dados. Hospedado com GitHub Pages.
+
+    <footer class="mt-20 py-10 border-t" style="border-color: var(--border)">
+      <div class="container container-narrow mx-auto px-6 text-sm text-[var(--muted)] flex flex-col sm:flex-row items-center justify-between gap-3">
+        <span>© {{ "now" | date: "%Y" }} Lucas Plácido — Engenheiro de Dados</span>
+        <span class="flex items-center gap-4">
+          <a href="https://github.com/lucas-placido" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">GitHub</a>
+          <a href="https://www.linkedin.com/in/placidolucas" target="_blank" rel="noopener" class="hover:text-[var(--accent)] transition">LinkedIn</a>
+          <a href="mailto:placido.data@gmail.com" class="hover:text-[var(--accent)] transition">E-mail</a>
+        </span>
       </div>
     </footer>
   </body>

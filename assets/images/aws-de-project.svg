@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 480" role="img" aria-label="AWS Data Pipeline com Terraform">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e7490"/>
+      <stop offset="1" stop-color="#082030"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.18" r="0.6">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="2" fill="#ffffff" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="480" fill="url(#bg)"/>
+  <rect width="1200" height="480" fill="url(#dots)"/>
+  <rect width="1200" height="480" fill="url(#glow)"/>
+
+  <g>
+    <rect x="860" y="160" width="240" height="50" rx="10" fill="#7c3aed" opacity="0.24"/>
+    <rect x="860" y="226" width="240" height="50" rx="10" fill="#ffffff" opacity="0.10"/>
+    <rect x="860" y="292" width="240" height="50" rx="10" fill="#ffffff" opacity="0.12"/>
+  </g>
+
+  <g font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+    <text x="82" y="160" font-size="27" font-weight="600" letter-spacing="3" fill="#a5f3fc">INFRA AS CODE</text>
+    <text x="80" y="248" font-size="70" font-weight="800" fill="#ffffff">AWS Data Pipeline</text>
+    <text x="82" y="300" font-size="30" font-weight="500" fill="#cffafe">Provisionamento com Terraform</text>
+
+    <g font-size="26" font-weight="600" fill="#ffffff">
+      <g transform="translate(80,372)"><rect width="86" height="48" rx="24" fill="#ffffff" opacity="0.14"/><text x="20" y="31">AWS</text></g>
+      <g transform="translate(180,372)"><rect width="166" height="48" rx="24" fill="#ffffff" opacity="0.14"/><text x="20" y="31">Terraform</text></g>
+      <g transform="translate(360,372)"><rect width="86" height="48" rx="24" fill="#ffffff" opacity="0.14"/><text x="20" y="31">EC2</text></g>
+    </g>
+  </g>
+</svg>

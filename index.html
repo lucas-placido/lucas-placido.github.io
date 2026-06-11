@@ -1,88 +1,124 @@
 ---
 layout: default
-title: "Portifólio de Lucas — Engenheiro de Dados"
+title: "Portfólio de Lucas Plácido — Engenheiro de Dados"
 ---
-<section class="container container-narrow mx-auto px-6 py-16">
+<section class="container container-narrow mx-auto px-6 pt-16 pb-10">
   <div class="max-w-3xl">
-    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight">
-      Olá, eu sou <span class="text-cyan-300">Lucas</span> — Engenheiro de Dados.
+    <p class="text-sm font-semibold tracking-wide text-[var(--accent)] uppercase mb-3">Engenheiro de Dados · Analytics Engineering</p>
+    <h1 class="text-4xl sm:text-6xl font-extrabold leading-tight text-[var(--heading)]">
+      Olá, eu sou <span class="text-[var(--accent)]">Lucas Plácido</span>.
     </h1>
-    <p class="mt-5 text-lg text-slate-300 max-w-2xl">
-      Crio pipelines e arquiteturas que transformam dados brutos em decisões inteligentes.
-      Foco em Spark, Databricks, Airflow, AWS e CI/CD.
+    <p class="mt-5 text-lg text-[var(--muted)] max-w-2xl">
+      Crio pipelines ELT confiáveis e modelo dados para análise — do ingestão à camada de consumo.
+      Foco em <strong class="text-[var(--text)]">dbt, Airflow, SQL/Python</strong> e cloud (BigQuery / AWS).
     </p>
-    <div class="mt-8 flex gap-4">
-      <a href="#projetos" class="px-5 py-3 rounded-xl bg-cyan-400/20 border border-cyan-300/30 hover:bg-cyan-400/30">Ver Projetos</a>
-<div class="relative group inline-block">
-    <button class="px-8 py-3 text-base font-semibold rounded-2xl bg-white/10 hover:bg-white/20 border border-white/10 transition">
-      Contato
-    </button>
-
-  <!-- DROPDOWN -->
-  <div
-    class="absolute right-0 top-full translate-y-2 opacity-0
-           group-hover:translate-y-0 group-hover:opacity-100
-           group-focus-within:translate-y-0 group-focus-within:opacity-100
-           pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
-           transition duration-150 ease-out">
-    <div class="w-44 rounded-xl bg-[#0f172a] border border-white/10 shadow-lg overflow-hidden">
-      <a href="mailto:placido.data@gmail.com"
-         class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-        ✉️ E-mail
-      </a>
-      <a href="https://wa.me/5575981783225" target="_blank"
-         class="block px-4 py-2 text-sm text-slate-300 hover:bg-white/10">
-        💬 WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
-
-</div>
+    <div class="mt-8 flex flex-wrap items-center gap-4">
+      <a href="#projetos" class="btn-primary px-5 py-3 rounded-xl font-semibold">Ver Projetos</a>
+      <div class="relative group inline-block">
+        <button class="btn-ghost px-5 py-3 rounded-xl text-base font-semibold">Contato</button>
+        <!-- DROPDOWN -->
+        <div class="absolute left-0 top-full translate-y-2 opacity-0
+                    group-hover:translate-y-0 group-hover:opacity-100
+                    group-focus-within:translate-y-0 group-focus-within:opacity-100
+                    pointer-events-none group-hover:pointer-events-auto group-focus-within:pointer-events-auto
+                    transition duration-150 ease-out z-40">
+          <div class="w-44 rounded-xl shadow-lg overflow-hidden border" style="background: var(--surface); border-color: var(--border)">
+            <a href="mailto:placido.data@gmail.com" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">✉️ E-mail</a>
+            <a href="https://wa.me/5575981783225" target="_blank" rel="noopener" class="block px-4 py-2 text-sm text-[var(--muted)] hover:text-[var(--accent)] hover:bg-[var(--surface-2)]">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
 <section id="sobre" class="container container-narrow mx-auto px-6 py-8">
-  <h2 class="text-2xl font-semibold mb-4">Sobre Mim</h2>
-  <p class="text-slate-300 max-w-3xl">
-    Engenheiro de Dados com experiência em arquiteturas escaláveis, modelagem de dados e automação. Já implementei pipelines batch e streaming, orquestração com Airflow,
-    infraestrutura como código com Terraform e monitoração ponta a ponta.
+  <h2 class="text-2xl font-semibold mb-4 text-[var(--heading)]">Sobre Mim</h2>
+  <p class="text-[var(--muted)] max-w-3xl">
+    Engenheiro de Dados (pleno) em Salvador-BA, focado em Analytics Engineering. Construo pipelines ELT confiáveis,
+    modelo dados com dbt, orquestro com Airflow e provisiono infraestrutura como código com Terraform — na AWS e no BigQuery.
   </p>
 </section>
+
+<section id="certificacoes" class="container container-narrow mx-auto px-6 py-12">
+  <h2 class="text-2xl font-semibold mb-2 text-[var(--heading)]">Certificações</h2>
+  <p class="text-[var(--muted)] mb-6 max-w-2xl">Validações oficiais do meu stack-alvo em dados e cloud.</p>
+  <div class="grid sm:grid-cols-3 gap-5">
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#FF9900">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Amazon Web Services</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">AWS Certified Data Analytics — Specialty</h3>
+      <p class="text-sm text-[var(--muted)]">Projetar e operar soluções de analytics na AWS — ingestão, armazenamento, processamento e visualização de dados em escala.</p>
+    </div>
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#FF3621">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Databricks</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">Databricks Lakehouse Fundamentals</h3>
+      <p class="text-sm text-[var(--muted)]">Fundamentos da arquitetura Lakehouse e do Delta Lake na plataforma Databricks para dados e IA.</p>
+    </div>
+
+    <div class="card rounded-2xl p-5 flex flex-col gap-3">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center justify-center w-11 h-11 rounded-xl shrink-0 text-white" style="background:#017CEE">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        </span>
+        <span class="text-xs font-semibold uppercase tracking-wide text-[var(--muted)]">Astronomer · Apache Airflow</span>
+      </div>
+      <h3 class="text-base font-semibold leading-snug text-[var(--heading)]">Apache Airflow Fundamentals</h3>
+      <p class="text-sm text-[var(--muted)]">Orquestração de workflows com Apache Airflow — autoria de DAGs, agendamento, operators e boas práticas.</p>
+    </div>
+
+  </div>
+</section>
+
 <section id="projetos" class="container container-narrow mx-auto px-6 py-12">
   <div class="flex items-center justify-between mb-6">
-    <h2 class="text-2xl font-semibold">Projetos em Destaque</h2>
-    <a href="/projects" class="text-sm text-cyan-300 hover:underline">Ver todos</a>
+    <h2 class="text-2xl font-semibold text-[var(--heading)]">Projetos em Destaque</h2>
+    <a href="{{ '/projects' | relative_url }}" class="text-sm font-medium text-[var(--accent)] hover:underline">Ver todos →</a>
   </div>
   <div class="grid md:grid-cols-3 gap-6">
     {% assign featured = site.projects | sort: 'date' | reverse | slice: 0, 3 %}
     {% if featured.size == 0 %}
-      <div class="text-slate-400">Sem projetos publicados ainda. Volte em breve.</div>
+      <div class="text-[var(--muted)]">Sem projetos publicados ainda. Volte em breve.</div>
     {% endif %}
     {% for p in featured %}
-      <a href="{{ p.url | relative_url }}" class="card rounded-2xl p-5 hover:scale-[1.01] transition">
+      <a href="{{ p.url | relative_url }}" class="card rounded-2xl overflow-hidden flex flex-col">
         {% if p.thumbnail %}
-          <img src="{{ p.thumbnail | relative_url }}" alt="" class="rounded-xl mb-4 border border-white/10"/>
+          <img src="{{ p.thumbnail | relative_url }}" alt="{{ p.title }}" loading="lazy"
+               class="w-full aspect-[5/2] object-cover border-b" style="border-color: var(--border)"/>
         {% endif %}
-        <h3 class="text-xl font-semibold">{{ p.title }}</h3>
-        <p class="text-slate-300 mt-2">{{ p.summary }}</p>
-        {% if p.tags %}
-          <div class="mt-4 flex flex-wrap gap-2">
-            {% for t in p.tags %}
-              <span class="chip px-2 py-1 rounded-lg text-xs text-slate-300">{{ t }}</span>
-            {% endfor %}
-          </div>
-        {% endif %}
+        <div class="p-5 flex flex-col gap-2">
+          <h3 class="text-lg font-semibold text-[var(--heading)]">{{ p.title }}</h3>
+          <p class="text-sm text-[var(--muted)] line-clamp-3">{{ p.summary }}</p>
+          {% if p.tags %}
+            <div class="mt-2 flex flex-wrap gap-2">
+              {% for t in p.tags limit: 4 %}
+                <span class="chip px-2 py-1 rounded-lg text-xs">{{ t }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       </a>
     {% endfor %}
   </div>
 </section>
+
 <section id="skills" class="container container-narrow mx-auto px-6 py-12">
-  <h2 class="text-2xl font-semibold mb-6">Skills</h2>
+  <h2 class="text-2xl font-semibold mb-6 text-[var(--heading)]">Skills</h2>
   <div class="flex flex-wrap gap-2">
-    {% assign skills = "Python,PySpark,Airflow,Databricks,AWS,Terraform,GitHub Actions,SQL,Power BI,Delta Lake,S3,Glue" | split: "," %}
+    {% assign skills = "Python,SQL,dbt,Apache Airflow,AWS,BigQuery,Terraform,Docker,GitHub Actions,Glue,Step Functions,RAG" | split: "," %}
     {% for s in skills %}
-      <span class="chip px-3 py-1 rounded-xl text-sm text-slate-200">{{ s }}</span>
+      <span class="chip px-3 py-1.5 rounded-xl text-sm">{{ s }}</span>
     {% endfor %}
   </div>
 </section>
